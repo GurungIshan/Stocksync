@@ -1,0 +1,46 @@
+UI (Pages)
+   ↓
+BLoC (State + Events)
+   ↓
+UseCases (Business Rules)
+   ↓
+Repository (Contract)
+   ↓
+Remote Data Source (API)
+   ↓
+ASP.NET Backend
+
+
+## here each layer doesnot know details of the layer below
+
+** UI layer
+
+Collect user inputs
+Show loading/ error/ success
+Dispatch events to BLoC
+
+It doesnt do:
+ 1. API calls
+ 2. Business logic
+ 3. Token handlling
+
+ UI tells bloc to handle the logic behind.
+
+
+ ** BLoC layer (Brain of UI)
+
+ What it does:
+    1. Receives events
+    2. Calls UseCases
+    3. Emits states.
+
+What BLoC doesnot do:
+    1. API calls
+    2. JSON parsing
+    3. HTTP logic
+
+
+** UseCase 
+
+It owns the meaning 
+"I depend on a contract not an implementation"
